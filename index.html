@@ -9,12 +9,16 @@
   <h1>Vind de goedkoopste brandstof</h1>
 
   <input id="pc" placeholder="Voer postcode in (bijv. 1012AB)">
+  <select id="brandstof">
+    <option value="euro95">Euro 95</option>
+    <option value="diesel">Diesel</option>
+    <option value="lpg">LPG</option>
+  </select>
   <button onclick="zoek()">Zoek goedkoopste</button>
 
   <div id="result" style="margin-top:20px;"></div>
 
   <script>
-    // Statische postcode → GPS lookup (voor demo)
     async function postcodeNaarCoord(pc) {
       const lookup = {
         "1012AB": { lat: 52.374, lon: 4.897 },
@@ -24,7 +28,6 @@
       return lookup[pc] || null;
     }
 
-    // Afstand berekenen in km (Haversine)
     function afstandKm(lat1, lon1, lat2, lon2) {
       const R = 6371;
       const dLat = (lat2-lat1) * Math.PI/180;
@@ -37,6 +40,7 @@
     async function zoek() {
       const resultDiv = document.getElementById("result");
       const pc = document.getElementById("pc").value.trim();
+      const brandstof = document.getElementById("brandstof").value;
 
       if (!pc) {
         resultDiv.innerHTML = "Voer eerst een postcode in";
@@ -54,9 +58,9 @@
         if (!res.ok) throw new Error("Kon prijzen niet laden");
         const data = await res.json();
 
-        const stationsMetAfstand = data.stations.map(station => ({
-          ...station,
-          afstand: afstandKm(coord.lat, coord.lon, station.lat, station.lon)
+        const stationsMetAfstand = data.stations.map(s => ({
+          ...s,
+          afstand: afstandKm(coord.lat, coord.lon, s.lat, s.lon)
         }));
 
         const binnen5km = stationsMetAfstand.filter(s => s.afstand <= 5);
@@ -65,14 +69,13 @@
           return;
         }
 
-        const goedkoopste = binnen5km.sort((a,b) => a.prijs - b.prijs)[0];
+        const goedkoopste = binnen5km.sort((a,b) => a[brandstof] - b[brandstof])[0];
 
         resultDiv.innerHTML = `
-          <strong>${goedkoopste.naam}</strong> — €${goedkoopste.prijs.toFixed(2)}<br>
+          <strong>${goedkoopste.naam}</strong> — €${goedkoopste[brandstof].toFixed(2)}<br>
           Locatie: ${goedkoopste.locatie}<br>
           Afstand: ${goedkoopste.afstand.toFixed(2)} km
         `;
-
       } catch (err) {
         console.error(err);
         resultDiv.innerHTML = "Er is een fout opgetreden bij het laden van de data";
