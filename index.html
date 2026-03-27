@@ -1,48 +1,83 @@
-<input id="pc" placeholder="1012AB">
-<button onclick="zoek()">Zoek goedkoopste</button>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Goedkoopste Brandstof</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Vind de goedkoopste brandstof</h1>
 
-<div id="result"></div>
+  <input id="pc" placeholder="Voer postcode in (bijv. 1012AB)">
+  <button onclick="zoek()">Zoek goedkoopste</button>
 
-<script>
-async function zoek() {
-  const resultDiv = document.getElementById("result");
-  const pc = document.getElementById("pc").value.trim();
+  <div id="result" style="margin-top:20px;"></div>
 
-  if (!pc) {
-    resultDiv.innerHTML = "Voer eerst een postcode in";
-    return;
-  }
-
-  try {
-    // Fetch JSON vanaf root (zelfde folder als index.html)
-    const res = await fetch("./prijzen.json");
-    console.log("Fetch status:", res.status);
-
-    if (!res.ok) {
-      resultDiv.innerHTML = "Kon prijzen niet laden";
-      console.error("HTTP fout:", res.status);
-      return;
+  <script>
+    // Statische postcode → GPS lookup (voor demo)
+    async function postcodeNaarCoord(pc) {
+      const lookup = {
+        "1012AB": { lat: 52.374, lon: 4.897 },
+        "1021AA": { lat: 52.400, lon: 4.920 },
+        "1071AC": { lat: 52.345, lon: 4.890 }
+      };
+      return lookup[pc] || null;
     }
 
-    const data = await res.json();
-    console.log("GELADEN DATA:", data);
-
-    if (!data.stations || data.stations.length === 0) {
-      resultDiv.innerHTML = "Geen stations gevonden";
-      return;
+    // Afstand berekenen in km (Haversine)
+    function afstandKm(lat1, lon1, lat2, lon2) {
+      const R = 6371;
+      const dLat = (lat2-lat1) * Math.PI/180;
+      const dLon = (lon2-lon1) * Math.PI/180;
+      const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180) * Math.sin(dLon/2)**2;
+      const c = 2*Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+      return R*c;
     }
 
-    // Eenvoudige filter: voor nu negeren we postcode, gewoon goedkoopste
-    const goedkoopste = data.stations.sort((a,b) => a.prijs - b.prijs)[0];
+    async function zoek() {
+      const resultDiv = document.getElementById("result");
+      const pc = document.getElementById("pc").value.trim();
 
-    resultDiv.innerHTML = `
-      <strong>${goedkoopste.naam}</strong> — €${goedkoopste.prijs.toFixed(2)}<br>
-      Locatie: ${goedkoopste.locatie}
-    `;
+      if (!pc) {
+        resultDiv.innerHTML = "Voer eerst een postcode in";
+        return;
+      }
 
-  } catch (err) {
-    console.error("Fetch error:", err);
-    resultDiv.innerHTML = "Er is een fout opgetreden bij het laden van de data";
-  }
-}
-</script>
+      const coord = await postcodeNaarCoord(pc);
+      if (!coord) {
+        resultDiv.innerHTML = "Postcode onbekend of niet beschikbaar";
+        return;
+      }
+
+      try {
+        const res = await fetch("./prijzen.json");
+        if (!res.ok) throw new Error("Kon prijzen niet laden");
+        const data = await res.json();
+
+        const stationsMetAfstand = data.stations.map(station => ({
+          ...station,
+          afstand: afstandKm(coord.lat, coord.lon, station.lat, station.lon)
+        }));
+
+        const binnen5km = stationsMetAfstand.filter(s => s.afstand <= 5);
+        if (binnen5km.length === 0) {
+          resultDiv.innerHTML = "Geen stations binnen 5 km";
+          return;
+        }
+
+        const goedkoopste = binnen5km.sort((a,b) => a.prijs - b.prijs)[0];
+
+        resultDiv.innerHTML = `
+          <strong>${goedkoopste.naam}</strong> — €${goedkoopste.prijs.toFixed(2)}<br>
+          Locatie: ${goedkoopste.locatie}<br>
+          Afstand: ${goedkoopste.afstand.toFixed(2)} km
+        `;
+
+      } catch (err) {
+        console.error(err);
+        resultDiv.innerHTML = "Er is een fout opgetreden bij het laden van de data";
+      }
+    }
+  </script>
+</body>
+</html>
