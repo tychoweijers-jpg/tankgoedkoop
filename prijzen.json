@@ -1,85 +1,85 @@
 {
-  "bijgewerkt": "2026-03-29 13:34",
+  "bijgewerkt": "2026-03-29 13:43",
   "prijzen": {
-    "Euro 95": 2.059,
-    "Diesel": 1.879,
-    "LPG": 0.894
+    "Euro 95": 2.18,
+    "Diesel": 2.04,
+    "LPG": 0.979
   },
   "merkprijzen": {
     "Tango": {
-      "Euro 95": 1.919,
-      "Diesel": 1.759,
-      "LPG": 0.894
+      "Euro 95": 2.04,
+      "Diesel": 1.92,
+      "LPG": 0.979
     },
     "Tinq": {
-      "Euro 95": 1.969,
-      "Diesel": 1.799,
-      "LPG": 0.894
+      "Euro 95": 2.09,
+      "Diesel": 1.96,
+      "LPG": 0.979
     },
     "Avia": {
-      "Euro 95": 1.999,
-      "Diesel": 1.829,
-      "LPG": 0.894
+      "Euro 95": 2.12,
+      "Diesel": 1.99,
+      "LPG": 0.979
     },
     "Calpam": {
-      "Euro 95": 1.999,
-      "Diesel": 1.829,
-      "LPG": 0.894
+      "Euro 95": 2.12,
+      "Diesel": 1.99,
+      "LPG": 0.979
     },
     "Argos": {
-      "Euro 95": 2.009,
-      "Diesel": 1.839,
-      "LPG": 0.894
+      "Euro 95": 2.13,
+      "Diesel": 2.0,
+      "LPG": 0.979
     },
     "Tamoil": {
-      "Euro 95": 2.009,
-      "Diesel": 1.839,
-      "LPG": 0.894
+      "Euro 95": 2.13,
+      "Diesel": 2.0,
+      "LPG": 0.979
     },
     "Omo": {
-      "Euro 95": 2.019,
-      "Diesel": 1.849,
-      "LPG": 0.894
+      "Euro 95": 2.14,
+      "Diesel": 2.01,
+      "LPG": 0.979
     },
     "Gulf": {
-      "Euro 95": 2.029,
-      "Diesel": 1.859,
-      "LPG": 0.894
+      "Euro 95": 2.15,
+      "Diesel": 2.02,
+      "LPG": 0.979
     },
     "Q8": {
-      "Euro 95": 2.039,
-      "Diesel": 1.869,
-      "LPG": 0.894
+      "Euro 95": 2.16,
+      "Diesel": 2.03,
+      "LPG": 0.979
     },
     "Total": {
-      "Euro 95": 2.059,
-      "Diesel": 1.879,
-      "LPG": 0.894
+      "Euro 95": 2.18,
+      "Diesel": 2.04,
+      "LPG": 0.979
     },
     "Texaco": {
-      "Euro 95": 2.069,
-      "Diesel": 1.889,
-      "LPG": 0.894
+      "Euro 95": 2.19,
+      "Diesel": 2.05,
+      "LPG": 0.979
     },
     "BP": {
-      "Euro 95": 2.079,
-      "Diesel": 1.899,
-      "LPG": 0.894
+      "Euro 95": 2.2,
+      "Diesel": 2.06,
+      "LPG": 0.979
     },
     "Esso": {
-      "Euro 95": 2.089,
-      "Diesel": 1.909,
-      "LPG": 0.894
+      "Euro 95": 2.21,
+      "Diesel": 2.07,
+      "LPG": 0.979
     },
     "Shell": {
-      "Euro 95": 2.109,
-      "Diesel": 1.919,
-      "LPG": 0.894
+      "Euro 95": 2.23,
+      "Diesel": 2.08,
+      "LPG": 0.979
     },
     "Onbekend": {
-      "Euro 95": 2.059,
-      "Diesel": 1.879,
-      "LPG": 0.894
+      "Euro 95": 2.18,
+      "Diesel": 2.04,
+      "LPG": 0.979
     }
   }
 }
