@@ -1,85 +1,85 @@
 {
-  "bijgewerkt": "2026-03-29 13:22",
+  "bijgewerkt": "2026-03-29 13:34",
   "prijzen": {
-    "Euro 95": 1.949,
-    "Diesel": 1.789,
-    "LPG": 0.899
+    "Euro 95": 2.059,
+    "Diesel": 1.879,
+    "LPG": 0.894
   },
   "merkprijzen": {
     "Tango": {
-      "Euro 95": 1.809,
-      "Diesel": 1.669,
-      "LPG": 0.899
+      "Euro 95": 1.919,
+      "Diesel": 1.759,
+      "LPG": 0.894
     },
     "Tinq": {
-      "Euro 95": 1.859,
-      "Diesel": 1.709,
-      "LPG": 0.899
+      "Euro 95": 1.969,
+      "Diesel": 1.799,
+      "LPG": 0.894
     },
     "Avia": {
-      "Euro 95": 1.889,
-      "Diesel": 1.739,
-      "LPG": 0.899
-    },
-    "Calpam": {
-      "Euro 95": 1.889,
-      "Diesel": 1.739,
-      "LPG": 0.899
-    },
-    "Argos": {
-      "Euro 95": 1.899,
-      "Diesel": 1.749,
-      "LPG": 0.899
-    },
-    "Tamoil": {
-      "Euro 95": 1.899,
-      "Diesel": 1.749,
-      "LPG": 0.899
-    },
-    "Omo": {
-      "Euro 95": 1.909,
-      "Diesel": 1.759,
-      "LPG": 0.899
-    },
-    "Gulf": {
-      "Euro 95": 1.919,
-      "Diesel": 1.769,
-      "LPG": 0.899
-    },
-    "Q8": {
-      "Euro 95": 1.929,
-      "Diesel": 1.779,
-      "LPG": 0.899
-    },
-    "Total": {
-      "Euro 95": 1.949,
-      "Diesel": 1.789,
-      "LPG": 0.899
-    },
-    "Texaco": {
-      "Euro 95": 1.959,
-      "Diesel": 1.799,
-      "LPG": 0.899
-    },
-    "BP": {
-      "Euro 95": 1.969,
-      "Diesel": 1.809,
-      "LPG": 0.899
-    },
-    "Esso": {
-      "Euro 95": 1.979,
-      "Diesel": 1.819,
-      "LPG": 0.899
-    },
-    "Shell": {
       "Euro 95": 1.999,
       "Diesel": 1.829,
-      "LPG": 0.899
+      "LPG": 0.894
+    },
+    "Calpam": {
+      "Euro 95": 1.999,
+      "Diesel": 1.829,
+      "LPG": 0.894
+    },
+    "Argos": {
+      "Euro 95": 2.009,
+      "Diesel": 1.839,
+      "LPG": 0.894
+    },
+    "Tamoil": {
+      "Euro 95": 2.009,
+      "Diesel": 1.839,
+      "LPG": 0.894
+    },
+    "Omo": {
+      "Euro 95": 2.019,
+      "Diesel": 1.849,
+      "LPG": 0.894
+    },
+    "Gulf": {
+      "Euro 95": 2.029,
+      "Diesel": 1.859,
+      "LPG": 0.894
+    },
+    "Q8": {
+      "Euro 95": 2.039,
+      "Diesel": 1.869,
+      "LPG": 0.894
+    },
+    "Total": {
+      "Euro 95": 2.059,
+      "Diesel": 1.879,
+      "LPG": 0.894
+    },
+    "Texaco": {
+      "Euro 95": 2.069,
+      "Diesel": 1.889,
+      "LPG": 0.894
+    },
+    "BP": {
+      "Euro 95": 2.079,
+      "Diesel": 1.899,
+      "LPG": 0.894
+    },
+    "Esso": {
+      "Euro 95": 2.089,
+      "Diesel": 1.909,
+      "LPG": 0.894
+    },
+    "Shell": {
+      "Euro 95": 2.109,
+      "Diesel": 1.919,
+      "LPG": 0.894
     },
     "Onbekend": {
-      "Euro 95": 1.949,
-      "Diesel": 1.789,
-      "LPG": 0.899
+      "Euro 95": 2.059,
+      "Diesel": 1.879,
+      "LPG": 0.894
     }
   }
 }
